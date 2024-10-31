@@ -1,0 +1,62 @@
+$border-radius-threshold: 5px;
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+}
+
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    transition: $transition-base;
+  } @else {
+    transition: $transition;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+@mixin box-shadow($box-shadow) {
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+// @mixin with-each-prefix(
+//   $capability,
+//   $threshold,
+//   $capability-options: $default-capability-options
+// ) {
+//   @each $prefix,
+//     $should-use-prefix
+//       in prefixes-for-capability($capability, $threshold, $capability-options)
+//   {
+//     @if $should-use-prefix {
+//       @if $debug-browser-support and type-of($should-use-prefix) == list {
+//         /* Capability #{$capability} is prefixed with #{$prefix} because #{$should-use-prefix} is required. */
+//       } @else if
+//         $debug-browser-support and
+//         type-of($should-use-prefix) ==
+//         number
+//       {
+//         /* Capability #{$capability} is prefixed with #{$prefix} because #{$should-use-prefix}% of users need it which is more than the threshold of #{$threshold}%. */
+//       }
+//       @include with-prefix($prefix) {
+//         @include with-browser-ranges($capability) {
+//           @content;
+//         }
+//       }
+//     } @else if $debug-browser-support {
+//       /* Capability #{$capability} is not prefixed with #{$prefix} because #{prefix-usage($prefix, $capability, $capability-options)}% of users are affected which is less than the threshold of #{$threshold}. */
+//     }
+//   }
+//   @include with-prefix(null) {
+//     @include with-browser-ranges($capability) {
+//       @content;
+//     }
+//   }
+// }

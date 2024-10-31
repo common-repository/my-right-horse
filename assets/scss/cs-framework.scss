@@ -1,0 +1,73 @@
+/**
+ *
+ * -----------------------------------------------------------
+ *
+ * Codestar Framework
+ * A Lightweight and easy-to-use WordPress Options Framework
+ *
+ * Copyright 2015 Codestar <info@codestarlive.com>
+ *
+ * -----------------------------------------------------------
+ *
+ */
+// @import "compass";
+// @import "~font-awesome/css/font-awesome.css";
+// @import "~bootstrap/scss/bootstrap";
+@import "vendor/variables";
+@import "vendor/mixins";
+@import "vendor/chosen";
+@import "vendor/base";
+
+/**
+ * Admin
+ */
+#cs-tab-appearence {
+  background-color: #f1f1f1;
+  padding: 20px;
+
+  h4 {
+    font-size: 18px;
+  }
+
+  .cs-element {
+    background-color: $white;
+    margin-bottom: 20px;
+
+    .cs-title {
+      width: auto;
+      float: none;
+    }
+  }
+  .cs-fieldset {
+    .cs-inner {
+      border: none;
+
+      .cs-element {
+        display: flex;
+        align-items: center;
+        padding: 20px 0px;
+        margin-bottom: 0;
+
+        &.cs-field-image_select {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .cs-title {
+            margin-bottom: 10px;
+          }
+        }
+
+        &.hidden {
+          display: none;
+        }
+
+        .cs-title {
+          margin-right: 20px;
+          h4 {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
